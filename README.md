@@ -1,12 +1,12 @@
 # MoleculeBench
 
-**An H–H bond laboratory with calculations you can reproduce and checks you can inspect.**
+**Compare hydrogen bond energies across electronic-structure methods and basis sets.**
 
 MoleculeBench compares restricted Hartree–Fock (RHF), a single-determinant mean-field approximation, with full configuration interaction (FCI), an all-configurations solution in a finite orbital basis. It scans the H₂ bond, compares four basis sets, and independently constructs and diagonalizes the two-electron Hamiltonian to check the FCI calculation.
 
-The dashboard runs offline and displays actual computed data. Its geometry selector shows the energies, natural orbital occupations and convergence diagnostics at each sampled distance. Downloadable JSON, CSV, PNG and SVG artifacts accompany every report.
+The offline dashboard displays the computed results. Its geometry selector shows the energies, natural orbital occupations and convergence diagnostics at each sampled distance. Downloadable JSON, CSV, PNG and SVG artifacts accompany every report.
 
-**Development history:** Developed locally using Git before publication. Publication dates describe repository availability, not a backdated development timeline.
+**Development history:** Developed locally with Git before publication.
 
 ![MoleculeBench dashboard](docs/dashboard-desktop.png)
 
