@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moleculebench"
+version = "0.1.0"
+description = "Reproducible H–H bond scans with independent two-electron validation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "nazeeh111"}]
+dependencies = ["pyscf>=2.8,<3", "numpy>=1.26,<3", "scipy>=1.12,<2", "matplotlib>=3.8,<4", "threadpoolctl>=3.5,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "build>=1,<2"]
+
+[project.scripts]
+moleculebench = "moleculebench.cli:main"
+
+[tool.setuptools.package-data]
+moleculebench = ["templates/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
