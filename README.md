@@ -1,6 +1,6 @@
 # MoleculeBench
 
-**Compare hydrogen bond energies across electronic-structure methods and basis sets.**
+**Compare H₂ bond energies across electronic-structure methods and basis sets.**
 
 MoleculeBench compares restricted Hartree–Fock (RHF), a single-determinant mean-field approximation, with full configuration interaction (FCI), an all-configurations solution in a finite orbital basis. It scans the H₂ bond, compares four basis sets, and independently constructs and diagonalizes the two-electron Hamiltonian to check the FCI calculation.
 

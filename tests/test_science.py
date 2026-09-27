@@ -62,6 +62,13 @@ def test_nonconverged_scf_is_rejected(monkeypatch):
         calculate(.74, "sto-3g")
 
 
+def test_nonfinite_solver_diagnostic_is_rejected(monkeypatch):
+    from pyscf import fci
+    monkeypatch.setattr(fci.spin_op, "spin_square", lambda *args: (float("nan"), 0.))
+    with pytest.raises(RuntimeError, match="non-finite numerical result"):
+        calculate(.74, "sto-3g")
+
+
 @pytest.mark.parametrize("field", ["start_angstrom", "stop_angstrom", "comparison_angstrom", "tolerance"])
 def test_huge_integer_config_is_validation_error(field):
     with pytest.raises(ValueError):

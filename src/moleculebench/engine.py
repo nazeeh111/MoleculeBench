@@ -138,6 +138,12 @@ def calculate(distance, basis, tolerance=1e-10):
         "overlap_min_eigenvalue": float(np.linalg.eigvalsh(overlap)[0]),
         "elapsed_seconds": time.perf_counter()-start,
     }
+    if (any(not math.isfinite(value) for value in result.values()
+            if isinstance(value, (int, float)))
+        or any(not math.isfinite(value) for field in
+               ("scf_energy_history_hartree", "natural_occupations")
+               for value in result[field])):
+        raise RuntimeError(f"non-finite numerical result at {distance} angstrom / {basis}")
     if (result["dense_fci_delta_hartree"] > 1e-7 or residual > 1e-8
         or abs(result["electron_count"]-2) > 1e-8 or abs(sum(occupations)-2) > 1e-8
         or occupations.min() < -1e-8 or occupations.max() > 2+1e-8

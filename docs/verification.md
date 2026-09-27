@@ -16,3 +16,11 @@ The independent many-electron solver uses the same PySCF integrals. This is not 
 The default demo is deliberately small. Arbitrary molecules and larger basis sets are disallowed, and the maximum scan is 81 points in cc-pVDZ plus the fixed four-point basis comparison. Actual runtime varies by CPU and scientific-library build. Repeated results should agree within numerical tolerances; timestamps and measured durations intentionally differ.
 
 Independent review also checked cc-pVDZ and cc-pVTZ at 0.3 Å and 6 Å; the reviewer reported passing invariants and independent FCI differences no larger than 2.4e-14 Eh. The reproduced huge-integer input overflow was fixed with six initially failing API cases plus CLI regressions. Numerical code for valid inputs is unchanged.
+
+## September 27, 2026 maintenance check
+
+The prior `calculate()` result guard did not reject a non-finite derived diagnostic: in a controlled fault injection, a NaN returned by PySCF's spin diagnostic passed the comparison-based invariant checks and `calculate()` returned a point marked converged. The result guard now rejects non-finite scalar results, SCF energy history entries and natural occupations before returning a point. The injected fault now raises a runtime error; an in-process CLI run exits with code 2 and leaves the requested output directory absent. This verifies rejection of that fault, not that PySCF normally produces NaN there.
+
+At the previously unrecorded 6-31G distance boundaries, 0.3 and 6 Å with a 1e-12 Eh tolerance, FCI agreed with the separately assembled dense Hamiltonian to 0 and 4.44e-16 Eh respectively. Residual norms were 1.32e-16 and 7.67e-16. At 6 Å, the atomic reference matched a separate one-electron UHF calculation exactly at the displayed precision; the FCI binding energy was −4.03e-9 Eh. At 5.9 Å / cc-pVDZ, dense FCI differed by 2.66e-15 Eh. These checks share PySCF's integral engine and do not establish experimental or complete-basis accuracy.
+
+The local Python 3.13 environment passed 41 tests in 14.55 seconds after this change, including a CLI regression for the injected NaN and output preservation. The earlier 39-test record above describes the September 23 build. This maintenance record describes local source checks; release verification is recorded separately.

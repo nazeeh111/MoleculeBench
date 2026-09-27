@@ -36,6 +36,17 @@ def test_existing_output_preserved(tmp_path):
     assert marker.read_text() == "retain this"
 
 
+def test_nonfinite_solver_diagnostic_leaves_no_output(tmp_path, monkeypatch, capsys):
+    from moleculebench.cli import main
+    from pyscf import fci
+    output = tmp_path / "report"
+    monkeypatch.setattr(fci.spin_op, "spin_square", lambda *args: (float("nan"), 0.))
+    monkeypatch.setattr(sys, "argv", ["moleculebench", "run", "--output", str(output)])
+    assert main() == 2
+    assert "non-finite numerical result" in capsys.readouterr().err
+    assert not output.exists()
+
+
 def test_small_report_is_real_and_portable(tmp_path):
     config = tmp_path / "config.json"
     config.write_text(json.dumps({"points": 3}))
