@@ -1,17 +1,323 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoleculeBench · H–H bond laboratory</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MoleculeBench · H₂ energy report</title>
 <style>
-:root{color-scheme:light;--ink:#193a36;--muted:#5c726c;--line:#d9e2da;--paper:#f5f5ec;--green:#156a58;--gold:#a87929}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header,main,footer{max-width:1240px;margin:auto;padding:24px 36px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.brand{font-weight:750;font-size:20px;letter-spacing:-.7px}.brand b{display:inline-grid;place-items:center;background:var(--green);color:white;border-radius:10px;width:32px;height:32px;margin-right:9px;font-size:17px}.tag,.eyebrow{font:11px ui-monospace,monospace;letter-spacing:1.5px;text-transform:uppercase}.tag{border:1px solid var(--line);padding:7px 12px;border-radius:20px}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:35px;padding:25px 0 28px;align-items:center}.eyebrow{color:var(--green)}h1{font-weight:550;font-size:clamp(34px,5vw,58px);letter-spacing:-2.5px;line-height:1.1;margin:16px 0}h1 em{font-family:Georgia,serif;font-weight:400}p{margin:8px 0}.lede{max-width:600px;color:var(--muted);font-size:16px}.molecule{height:155px;position:relative;display:flex;align-items:center;justify-content:center;gap:85px;background:radial-gradient(ellipse,#dbe8d8,transparent 70%)}.molecule:before{content:"";position:absolute;width:150px;height:2px;background:#83a798}.atom{z-index:1;border:1px solid #91b4a1;background:radial-gradient(circle at 30% 25%,#fffef4,#bfd9c4);width:65px;height:65px;border-radius:50%;display:grid;place-items:center;font:28px Georgia,serif;box-shadow:0 10px 35px #b5c9b35c}.molecule small{position:absolute;bottom:0;color:var(--muted);font:11px ui-monospace,monospace}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}.card,.panel{border:1px solid var(--line);background:#fffef7;border-radius:12px}.card{padding:16px 20px}.card span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.card strong{display:block;font-size:24px;letter-spacing:-.5px;font-weight:500;margin-top:5px}.card small{font-size:12px;color:var(--muted)}.workspace{display:grid;grid-template-columns:minmax(0,2.3fr) minmax(240px,1fr);gap:18px}.panel{padding:24px;min-width:0}.panelhead{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-bottom:14px}h2{font-size:19px;font-weight:550;margin:0;letter-spacing:-.4px}.sub{font-size:12px;color:var(--muted)}.controls{display:flex;gap:16px;font-size:12px}label{cursor:pointer}input{accent-color:var(--green)}input[type=range]{width:100%;margin:20px 0 4px}svg.chart{display:block;width:100%;height:auto;overflow:visible}svg text{font:11px -apple-system,sans-serif;fill:var(--muted)}.axis-label{font-size:12px}button,.download{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:6px;background:white;color:var(--ink);padding:7px 12px;text-decoration:none;font-size:12px}button:hover,.download:hover{background:#e7efe2}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #bc902c;outline-offset:3px}.point-label{font-size:28px;font-weight:500;margin:17px 0 2px}.metric{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 0;font-size:12px}.metric b{font-family:ui-monospace,monospace;font-weight:500}.note{border-left:3px solid #bb9149;padding:5px 0 5px 12px;font-size:12px;color:var(--muted);margin-top:20px}.lower{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:18px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:16px;font-size:12px;text-align:right}th,td{padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}th{font-weight:500;color:var(--muted)}th:first-child,td:first-child{text-align:left}td{font-variant-numeric:tabular-nums}details{margin-top:18px}summary{cursor:pointer;font-weight:550}pre{font:11px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1e7;padding:14px;border-radius:6px}.downloads{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}footer{color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:32px}.pass{color:var(--green)}.gap-chart{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}noscript{display:block;padding:20px;background:#ffecc5}a{color:var(--green)}@media(max-width:850px){header,main,footer{padding:20px}.hero{grid-template-columns:1fr}.molecule{display:none}.cards{grid-template-columns:repeat(2,1fr)}.workspace,.lower{grid-template-columns:1fr}.panel{padding:18px}.tag{font-size:9px}.panelhead{flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
-</style></head><body>
-<header><div class="brand"><b>M</b>MoleculeBench</div><span class="tag">Computed H₂ energies</span></header>
-<main><section class="hero"><div><div class="eyebrow">Computational chemistry / experiment 01</div><h1>H₂ <em>bond energies</em></h1><p class="lede">Follow two hydrogen atoms from a molecule toward separation. Compare a mean-field approximation with a complete two-electron calculation in the same finite basis.</p></div><div class="molecule" aria-hidden="true"><span class="atom">H</span><span class="atom">H</span><small>H₂ · neutral · singlet · clamped nuclei</small></div></section>
-<noscript>JavaScript is required for interactive charts. Read results.json, scan.csv, basis_comparison.csv, or energy-curves.png in this folder.</noscript>
-<section class="cards" aria-label="Calculation summary"><div class="card"><span>Scan basis</span><strong id="basis">—</strong><small id="samples">Computed geometries</small></div><div class="card"><span>Sampled FCI minimum</span><strong id="minimum">—</strong><small>Grid minimum, not optimized geometry</small></div><div class="card"><span>Independent solver agreement</span><strong id="agreement">—</strong><small>Maximum difference · hartree</small></div><div class="card"><span>Solver status</span><strong id="status">—</strong><small id="runtime">Local CPU calculation</small></div></section>
-<section class="workspace"><div class="panel"><div class="panelhead"><div><h2>Potential energy curve</h2><p class="sub">Total electronic + nuclear repulsion energy · hartree</p></div><div class="controls"><label><input id="rhf" type="checkbox" checked> RHF</label><label><input id="fci" type="checkbox" checked> FCI</label></div></div><svg class="chart" id="energy" viewBox="0 0 700 320" role="img" aria-label="RHF and FCI energy versus H–H bond distance"></svg><div class="gap-chart"><h2>Correlation energy</h2><p class="sub">RHF − FCI · millihartree · positive values indicate correlation energy missing from RHF</p><svg class="chart" id="gap" viewBox="0 0 700 190" role="img" aria-label="RHF minus FCI energy versus distance"></svg></div></div>
-<aside class="panel"><div class="eyebrow">Geometry inspector</div><div class="point-label" id="distance" aria-live="polite">—</div><p class="sub">Move through the computed grid</p><label for="point" class="sub">Bond distance sample</label><input id="point" type="range" min="0" value="0" step="1"><div class="metric"><span>RHF / hartree</span><b id="point-rhf"></b></div><div class="metric"><span>FCI / hartree</span><b id="point-fci"></b></div><div class="metric"><span>FCI − RHF / mEh</span><b id="point-corr"></b></div><div class="metric"><span>SCF cycles</span><b id="point-cycles"></b></div><div class="metric"><span>Leading occupations</span><b id="point-occ"></b></div><p class="note">RHF constrains both electrons to one doubly occupied orbital. As the bond stretches, this constraint gives the wrong dissociation behavior. FCI allows every electron configuration within the declared basis.</p><details><summary>Selected-point diagnostics</summary><pre id="point-details"></pre></details></aside></section>
-<section class="lower"><div class="panel"><h2>Change the orbital basis</h2><p class="sub" id="comparison-note"></p><div class="tablewrap"><table><thead><tr><th>Basis</th><th>Orbitals</th><th>RHF / Eh</th><th>FCI / Eh</th></tr></thead><tbody id="basis-rows"></tbody></table></div><p class="note">Larger basis sets allow a more flexible wavefunction. These are finite-basis comparisons, not a complete-basis extrapolation; the four families are not all nested.</p></div><div class="panel"><h2>Numerical checks</h2><p class="sub">Maximum solver differences across the computed points.</p><div class="metric"><span>Independent FCI difference</span><b id="check-dense"></b></div><div class="metric"><span>Tighter RHF difference</span><b id="check-tight"></b></div><div class="metric"><span>Electrons / charge / spin</span><b>2 / 0 / singlet</b></div><p class="note">Numerical convergence is not physical accuracy. FCI is exact only in a finite basis for this nonrelativistic, fixed-nuclei model. No zero-point motion, temperature, relativity, or experimental uncertainty is included.</p><details><summary>Runtime provenance</summary><pre id="provenance"></pre></details></div></section>
-<section class="panel" style="margin-top:18px"><div class="panelhead"><div><h2>Download results</h2><p class="sub">This offline page contains the calculated results. All energies use hartree (Eh); 1 mEh = 0.001 Eh.</p></div><span class="tag">Configuration included</span></div><div class="downloads"><button id="download-json">Download result JSON</button><a class="download" href="scan.csv" download>Scan CSV</a><a class="download" href="basis_comparison.csv" download>Basis CSV</a><a class="download" href="energy-curves.png" download>Plot PNG</a><a class="download" href="energy-curves.svg" download>Plot SVG</a></div><details><summary>All computed scan points (accessible data table)</summary><div class="tablewrap"><table><thead><tr><th>Distance / Å</th><th>RHF / Eh</th><th>FCI / Eh</th><th>RHF − FCI / mEh</th></tr></thead><tbody id="scan-rows"></tbody></table></div></details></section>
-</main><footer>MoleculeBench by nazeeh111. Numerical engine: <a href="https://pyscf.org/">PySCF</a>; independent two-electron diagonalization: SciPy. Calculated results, not experimental measurements.</footer>
+:root {
+  color-scheme: light;
+  --ink: #20282e;
+  --muted: #56616a;
+  --line: #d5dce0;
+  --green: #156a58;
+  --gold: #a87929;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+header, main, footer {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 32px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-top: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { font-size: 17px; font-weight: 650; }
+.report-label { color: var(--muted); font-size: 13px; }
+.report-intro { padding: 28px 0 24px; }
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -.6px;
+  font-weight: 650;
+}
+p { margin: 8px 0; }
+.model { font-size: 14px; font-weight: 550; }
+.lede { max-width: 850px; color: var(--muted); }
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 30px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.summary-item { padding: 16px 20px; }
+.summary-item:first-child { padding-left: 0; }
+.summary-item + .summary-item { border-left: 1px solid var(--line); }
+.summary-item span { display: block; font-size: 12px; color: var(--muted); }
+.summary-item strong {
+  display: block;
+  margin: 5px 0;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.summary-item small { display: block; font-size: 12px; color: var(--muted); }
+.analysis {
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(280px, 1fr);
+  gap: 30px;
+}
+.report-section { min-width: 0; }
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+h2 { margin: 0; font-size: 18px; line-height: 1.4; font-weight: 650; }
+.sub { color: var(--muted); font-size: 13px; }
+.method-controls { display: flex; gap: 16px; font-size: 13px; flex-shrink: 0; }
+.method-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  cursor: pointer;
+}
+.method-controls label::after { content: ""; width: 20px; height: 3px; background: var(--green); }
+.method-controls label:first-child::after { background: var(--gold); }
+input { accent-color: var(--green); }
+#rhf { accent-color: var(--gold); }
+input[type="checkbox"] { width: 16px; height: 16px; margin: 0; }
+input[type="range"] { display: block; width: 100%; margin: 12px 0 20px; min-height: 28px; }
+.plot-scroll { overflow-x: auto; }
+svg.chart { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: var(--muted); }
+.axis-label { font-size: 13px; }
+.plot-hint { display: none; }
+.inspector { padding-left: 24px; border-left: 1px solid var(--line); }
+.point-label {
+  margin: 14px 0 2px;
+  font-size: 27px;
+  line-height: 1.3;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.metric b { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; font-weight: 500; text-align: right; }
+.note { margin-top: 16px; color: var(--muted); font-size: 13px; }
+.gap-chart { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.lower {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  margin-top: 32px;
+}
+.lower .report-section, .results-section { border-top: 1px solid var(--line); padding-top: 20px; }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; text-align: right; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-weight: 600; color: var(--muted); }
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+th:last-child, td:last-child { padding-right: 0; }
+td { font-variant-numeric: tabular-nums; }
+details { margin-top: 18px; }
+summary { cursor: pointer; font-size: 13px; font-weight: 550; padding: 5px 0; }
+pre {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #f7f9fa;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.results-section { margin-top: 32px; }
+.downloads { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+button, .download {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #aab5bc;
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+button:hover, .download:hover { background: #f1f4f5; border-color: var(--ink); }
+button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible, .plot-scroll:focus-visible {
+  outline: 2px solid #216a9b;
+  outline-offset: 3px;
+}
+footer { margin-top: 32px; padding-top: 18px; padding-bottom: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+a { color: var(--green); }
+.pass { color: var(--green); }
+noscript { display: block; padding: 16px; border: 1px solid var(--line); background: #f7f9fa; }
+@media (max-width: 900px) {
+  header, main, footer { padding-left: 22px; padding-right: 22px; }
+  .analysis { grid-template-columns: 1fr; gap: 26px; }
+  .inspector { padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .summary-item { padding: 14px; }
+  .summary-item strong { font-size: 20px; }
+  .lower { grid-template-columns: 1fr; gap: 26px; }
+}
+@media (max-width: 600px) {
+  header, main, footer { padding-left: 18px; padding-right: 18px; }
+  header { align-items: start; padding-top: 16px; }
+  .report-label { text-align: right; max-width: 110px; font-size: 12px; }
+  .report-intro { padding: 22px 0; }
+  .model, .lede { font-size: 14px; }
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 24px; }
+  .summary-item, .summary-item:first-child { padding: 14px 12px; }
+  .summary-item:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .summary-item:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .summary-item strong { font-size: 20px; }
+  .section-heading { flex-wrap: wrap; gap: 4px; }
+  .method-controls { gap: 20px; }
+  .plot-hint { display: block; margin: 0 0 8px; color: var(--muted); font-size: 12px; }
+  .metric { font-size: 13px; }
+  .downloads { gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">MoleculeBench</div>
+  <span class="report-label">Computed energy report</span>
+</header>
+<main>
+  <section class="report-intro">
+    <h1>H₂ bond energy scan</h1>
+    <p class="model">Neutral H₂ · two electrons · singlet · clamped nuclei</p>
+    <p class="lede">Restricted Hartree–Fock (RHF), a mean-field approximation, and full configuration interaction (FCI), an all-configurations calculation in the same finite orbital basis. Energies include electronic energy and nuclear repulsion.</p>
+  </section>
+  <noscript>JavaScript is required for interactive charts. Read results.json, scan.csv, basis_comparison.csv, or energy-curves.png in this folder.</noscript>
+  <section class="summary-grid" aria-label="Calculation summary">
+    <div class="summary-item">
+      <span>Scan basis</span>
+      <strong id="basis">—</strong>
+      <small id="samples">Computed geometries</small>
+    </div>
+    <div class="summary-item">
+      <span>Sampled FCI minimum</span>
+      <strong id="minimum">—</strong>
+      <small>Grid minimum, not optimized geometry</small>
+    </div>
+    <div class="summary-item">
+      <span>Independent FCI solver agreement</span>
+      <strong id="agreement">—</strong>
+      <small>Maximum difference · hartree</small>
+    </div>
+    <div class="summary-item">
+      <span>Solver status</span>
+      <strong id="status">—</strong>
+      <small id="runtime">Local CPU calculation</small>
+    </div>
+  </section>
+  <section class="analysis">
+    <div class="report-section">
+      <div class="section-heading">
+        <div>
+          <h2>Potential energy curve</h2>
+          <p class="sub">Total electronic + nuclear repulsion energy · hartree</p>
+        </div>
+        <div class="method-controls">
+          <label><input id="rhf" type="checkbox" checked> RHF</label>
+          <label><input id="fci" type="checkbox" checked> FCI</label>
+        </div>
+      </div>
+      <p class="plot-hint">Scroll horizontally to read the full chart.</p>
+      <div class="plot-scroll" tabindex="0" role="region" aria-label="Potential energy chart, scroll horizontally on narrow screens">
+        <svg class="chart" id="energy" viewBox="0 0 700 320" role="img" aria-label="RHF and FCI energy versus H–H bond distance"></svg>
+      </div>
+      <div class="gap-chart">
+        <h2>Correlation energy</h2>
+        <p class="sub">RHF − FCI · millihartree · positive values indicate correlation energy missing from RHF</p>
+        <p class="plot-hint">Scroll horizontally to read the full chart.</p>
+        <div class="plot-scroll" tabindex="0" role="region" aria-label="Correlation energy chart, scroll horizontally on narrow screens">
+          <svg class="chart" id="gap" viewBox="0 0 700 190" role="img" aria-label="RHF minus FCI energy versus distance"></svg>
+        </div>
+      </div>
+    </div>
+    <aside class="report-section inspector">
+      <h2>Geometry inspector</h2>
+      <div class="point-label" id="distance" aria-live="polite">—</div>
+      <p class="sub">Move through the computed grid</p>
+      <label for="point" class="sub">Bond distance sample</label>
+      <input id="point" type="range" min="0" value="0" step="1">
+      <div class="metric"><span>RHF / hartree</span><b id="point-rhf"></b></div>
+      <div class="metric"><span>FCI / hartree</span><b id="point-fci"></b></div>
+      <div class="metric"><span>FCI − RHF / mEh</span><b id="point-corr"></b></div>
+      <div class="metric"><span>SCF cycles</span><b id="point-cycles"></b></div>
+      <div class="metric"><span>Leading occupations</span><b id="point-occ"></b></div>
+      <p class="note">RHF constrains both electrons to one doubly occupied orbital. As the bond stretches, this constraint gives the wrong dissociation behavior. FCI allows every electron configuration within the declared basis.</p>
+      <details><summary>Selected-point diagnostics</summary><pre id="point-details"></pre></details>
+    </aside>
+  </section>
+  <section class="lower">
+    <div class="report-section">
+      <h2>Orbital basis comparison</h2>
+      <p class="sub" id="comparison-note"></p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Basis</th><th>Orbitals</th><th>RHF / Eh</th><th>FCI / Eh</th></tr></thead>
+          <tbody id="basis-rows"></tbody>
+        </table>
+      </div>
+      <p class="note">Larger basis sets allow a more flexible wavefunction. These are finite-basis comparisons, not a complete-basis extrapolation; the four families are not all nested.</p>
+    </div>
+    <div class="report-section">
+      <h2>Numerical checks</h2>
+      <p class="sub">Maximum solver differences across the computed points.</p>
+      <div class="metric"><span>Independent FCI difference</span><b id="check-dense"></b></div>
+      <div class="metric"><span>Tighter RHF difference</span><b id="check-tight"></b></div>
+      <div class="metric"><span>Electrons / charge / spin</span><b>2 / 0 / singlet</b></div>
+      <p class="note">Numerical convergence is not physical accuracy. FCI is exact only in a finite basis for this nonrelativistic, fixed-nuclei model. No zero-point motion, temperature, relativity, or experimental uncertainty is included.</p>
+      <p class="note">The independent calculation shares PySCF integrals. It checks the many-electron assembly and solver, not integral generation or basis data.</p>
+      <details><summary>Runtime provenance</summary><pre id="provenance"></pre></details>
+    </div>
+  </section>
+  <section class="report-section results-section">
+    <h2>Download results</h2>
+    <p class="sub">This offline page contains the calculated results and configuration. All energies use hartree (Eh); 1 mEh = 0.001 Eh.</p>
+    <div class="downloads">
+      <button id="download-json">Download result JSON</button>
+      <a class="download" href="scan.csv" download>Scan CSV</a>
+      <a class="download" href="basis_comparison.csv" download>Basis CSV</a>
+      <a class="download" href="energy-curves.png" download>Plot PNG</a>
+      <a class="download" href="energy-curves.svg" download>Plot SVG</a>
+    </div>
+    <details>
+      <summary>All computed scan points (accessible data table)</summary>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Distance / Å</th><th>RHF / Eh</th><th>FCI / Eh</th><th>RHF − FCI / mEh</th></tr></thead>
+          <tbody id="scan-rows"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+</main>
+<footer>MoleculeBench by nazeeh111. Numerical engine: <a href="https://pyscf.org/">PySCF</a>; independent two-electron diagonalization: SciPy. Calculated results, not experimental measurements.</footer>
 <script id="results" type="application/json">__RESULT_DATA__</script>
 <script>
 "use strict";
