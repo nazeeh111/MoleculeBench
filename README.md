@@ -6,7 +6,7 @@ MoleculeBench compares restricted Hartree–Fock (RHF), a single-determinant mea
 
 The offline dashboard displays the computed results. Its geometry selector shows the energies, natural orbital occupations and convergence diagnostics at each sampled distance. Downloadable JSON, CSV, PNG and SVG artifacts accompany every report.
 
-![MoleculeBench dashboard](docs/dashboard-desktop.png)
+![MoleculeBench dashboard](docs/dashboard-desktop.jpg)
 
 ## Run locally
 
