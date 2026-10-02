@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: molecule-pages
+  group: molecule-pages-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   verify:
@@ -24,6 +24,7 @@ jobs:
           include-hidden-files: true
           path: docs/demo
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-latest
     permissions:
