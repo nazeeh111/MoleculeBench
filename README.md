@@ -6,7 +6,9 @@ MoleculeBench compares restricted Hartree–Fock (RHF), a single-determinant mea
 
 The offline dashboard displays the computed results. Its geometry selector shows the energies, natural orbital occupations and convergence diagnostics at each sampled distance. Downloadable JSON, CSV, PNG and SVG artifacts accompany every report.
 
-![MoleculeBench dashboard](docs/dashboard-desktop.jpg)
+[Open the computed H₂ report](https://nazeeh111.github.io/MoleculeBench/) and move the bond-distance selector to compare RHF and FCI energies and orbital occupations. This precomputed PySCF report opens in your browser without installation; new calculations run locally using the steps below.
+
+[![MoleculeBench dashboard](docs/dashboard-desktop.jpg)](https://nazeeh111.github.io/MoleculeBench/)
 
 ## Run locally
 
@@ -22,7 +24,7 @@ moleculebench run --config config.json --output runs/hydrogen
 
 Open `runs/hydrogen/index.html` directly in a browser. No web server or CDN is needed. Use a new output directory for each experiment; existing directories are refused to preserve earlier results. JSON configuration accepts only the documented fields and finite, bounded values. Files are limited to 16 KiB; duplicate fields and excessive nesting are rejected.
 
-A [live example report](https://nazeeh111.github.io/MoleculeBench/), precomputed [offline report](docs/demo/index.html), [raw results](docs/demo/results.json) and [energy plot](docs/demo/energy-curves.png) are included. The report can be downloaded with its neighboring CSV/plot files and opened offline.
+The same example is included as a precomputed [offline report](docs/demo/index.html), [raw results](docs/demo/results.json) and [energy plot](docs/demo/energy-curves.png). Download the report with its neighboring CSV/plot files to open it offline.
 
 ```json
 {
