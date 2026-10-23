@@ -197,6 +197,8 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto; }
 }
+.inspect-link { color: var(--green); font-weight: 600; text-underline-offset: 4px; }
+#point { scroll-margin-top: 200px; }
 </style>
 </head>
 <body>
@@ -209,6 +211,8 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
     <h1>H₂ bond energy scan</h1>
     <p class="model">Neutral H₂ · two electrons · singlet · clamped nuclei</p>
     <p class="lede">Restricted Hartree–Fock (RHF), a mean-field approximation, and full configuration interaction (FCI), an all-configurations calculation in the same finite orbital basis. Energies include electronic energy and nuclear repulsion.</p>
+  <p><a class="inspect-link" href="#point">Inspect a computed geometry ↓</a></p>
+  <p class="note">This report contains precomputed results. The selector explores the saved scan; it does not run a new calculation.</p>
   </section>
   <noscript>JavaScript is required for interactive charts. Read results.json, scan.csv, basis_comparison.csv, or energy-curves.png in this folder.</noscript>
   <section class="summary-grid" aria-label="Calculation summary">
@@ -261,7 +265,7 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
     <aside class="report-section inspector">
       <h2>Geometry inspector</h2>
       <div class="point-label" id="distance" aria-live="polite">—</div>
-      <p class="sub">Move through the computed grid</p>
+      <p class="sub">Move through the computed grid. Use the arrow keys for adjacent samples, or Home / End for the shortest / longest bond.</p>
       <label for="point" class="sub">Bond distance sample</label>
       <input id="point" type="range" min="0" value="0" step="1">
       <div class="metric"><span>RHF / hartree</span><b id="point-rhf"></b></div>
