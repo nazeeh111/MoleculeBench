@@ -36,7 +36,7 @@ header {
 }
 .brand { font-size: 17px; font-weight: 650; }
 .report-label { color: var(--muted); font-size: 13px; }
-.report-intro { padding: 28px 0 24px; }
+.report-intro { padding: 24px 0 18px; }
 h1 {
   margin: 0 0 8px;
   font-size: clamp(26px, 3vw, 34px);
@@ -46,11 +46,11 @@ h1 {
 }
 p { margin: 8px 0; }
 .model { font-size: 14px; font-weight: 550; }
-.lede { max-width: 850px; color: var(--muted); }
+.lede { max-width: 960px; color: var(--muted); font-size: 13px; }
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-bottom: 30px;
+  margin: 28px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -181,7 +181,7 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
   header, main, footer { padding-left: 18px; padding-right: 18px; }
   header { align-items: start; padding-top: 16px; }
   .report-label { text-align: right; max-width: 110px; font-size: 12px; }
-  .report-intro { padding: 22px 0; }
+  .report-intro { padding: 20px 0; }
   .model, .lede { font-size: 14px; }
   .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 24px; }
   .summary-item, .summary-item:first-child { padding: 14px 12px; }
@@ -215,28 +215,6 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
   <p class="note">This report contains precomputed results. The selector explores the saved scan; it does not run a new calculation.</p>
   </section>
   <noscript>JavaScript is required for interactive charts. Read results.json, scan.csv, basis_comparison.csv, or energy-curves.png in this folder.</noscript>
-  <section class="summary-grid" aria-label="Calculation summary">
-    <div class="summary-item">
-      <span>Scan basis</span>
-      <strong id="basis">—</strong>
-      <small id="samples">Computed geometries</small>
-    </div>
-    <div class="summary-item">
-      <span>Sampled FCI minimum</span>
-      <strong id="minimum">—</strong>
-      <small>Grid minimum, not optimized geometry</small>
-    </div>
-    <div class="summary-item">
-      <span>Independent FCI solver agreement</span>
-      <strong id="agreement">—</strong>
-      <small>Maximum difference · hartree</small>
-    </div>
-    <div class="summary-item">
-      <span>Solver status</span>
-      <strong id="status">—</strong>
-      <small id="runtime">Local CPU calculation</small>
-    </div>
-  </section>
   <section class="analysis">
     <div class="report-section">
       <div class="section-heading">
@@ -276,6 +254,28 @@ noscript { display: block; padding: 16px; border: 1px solid var(--line); backgro
       <p class="note">RHF constrains both electrons to one doubly occupied orbital. As the bond stretches, this constraint gives the wrong dissociation behavior. FCI allows every electron configuration within the declared basis.</p>
       <details><summary>Selected-point diagnostics</summary><pre id="point-details"></pre></details>
     </aside>
+  </section>
+  <section class="summary-grid" aria-label="Calculation summary">
+    <div class="summary-item">
+      <span>Scan basis</span>
+      <strong id="basis">—</strong>
+      <small id="samples">Computed geometries</small>
+    </div>
+    <div class="summary-item">
+      <span>Sampled FCI minimum</span>
+      <strong id="minimum">—</strong>
+      <small>Grid minimum, not optimized geometry</small>
+    </div>
+    <div class="summary-item">
+      <span>Independent FCI solver agreement</span>
+      <strong id="agreement">—</strong>
+      <small>Maximum difference · hartree</small>
+    </div>
+    <div class="summary-item">
+      <span>Solver status</span>
+      <strong id="status">—</strong>
+      <small id="runtime">Local CPU calculation</small>
+    </div>
   </section>
   <section class="lower">
     <div class="report-section">

@@ -8,7 +8,10 @@ The offline dashboard displays the computed results. Its geometry selector shows
 
 [Open the computed H₂ report](https://nazeeh111.github.io/MoleculeBench/) and move the bond-distance selector to compare RHF and FCI energies and orbital occupations. This precomputed PySCF report opens in your browser without installation; new calculations run locally using the steps below.
 
-[![MoleculeBench dashboard](docs/dashboard-desktop.jpg)](https://nazeeh111.github.io/MoleculeBench/)
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/presentation-phone.png">
+  <img src="docs/presentation-desktop.png" alt="Current precomputed H₂ report: RHF and FCI energy curves beside the geometry inspector; no new calculation runs in the browser.">
+</picture>
 
 ## Run locally
 
